@@ -296,57 +296,41 @@ button#export-html {
 button#export-html:hover {
   background-color: #28a428;
 }
-
-/* === Mobile UX Fixes (Sticky Header & Canvas Always Visible) === */
 @media (max-width: 768px) {
-  .container {
-    display: block;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  .mobile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #333;
-    color: white;
-    padding: 10px;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-  }
-
-  .hamburger {
-    background: #555;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-  .canvas {
-    width: 100%;
-    height: 65vh;
-    margin: 0;
-    order: 0;
-  }
-
   .sidebar,
   .editor {
     display: none;
     position: absolute;
-    top: 60px;
-    width: 100%;
-    max-height: 60vh;
+    top: 50px;
+    z-index: 999;
+    height: 80vh;
     overflow-y: auto;
-    background: #f0f0f0;
-    z-index: 998;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   }
 
   .sidebar.open,
   .editor.open {
     display: block;
+  }
+
+  .mobile-toggle {
+    position: fixed;
+    top: 10px;
+    z-index: 1000;
+    padding: 10px 15px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .mobile-toggle.left {
+    left: 10px;
+  }
+
+  .mobile-toggle.right {
+    right: 10px;
   }
 }
