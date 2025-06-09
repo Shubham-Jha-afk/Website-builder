@@ -750,3 +750,20 @@ if (isMobile) {
     });
   });
 }
+const isMobileView = window.innerWidth <= 768;
+if (isMobileView) {
+  const sidebar = document.getElementById('sidebar');
+  const editor = document.getElementById('editor');
+  const toggleSidebar = document.getElementById('toggle-sidebar');
+  const toggleEditor = document.getElementById('toggle-editor');
+
+  toggleSidebar.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    editor.classList.remove('open');
+  });
+
+  toggleEditor.addEventListener('click', () => {
+    editor.classList.toggle('open');
+    sidebar.classList.remove('open');
+  });
+}
