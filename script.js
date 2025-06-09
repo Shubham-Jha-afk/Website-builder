@@ -705,3 +705,48 @@ if (isMobile) {
     });
   });
 }
+// Mobile logic injected into script.js
+const canvas = document.getElementById('canvas');
+const editPanel = document.getElementById('edit-panel');
+let selectedElements = new Set();
+let isCtrlPressed = false;
+
+const isMobile = window.innerWidth <= 768;
+
+const sidebar = document.getElementById('sidebar');
+const editor = document.getElementById('editor');
+const toggleSidebarBtn = document.getElementById('toggle-sidebar');
+const toggleEditorBtn = document.getElementById('toggle-editor');
+
+// Toggle dropdown visibility for sidebar and editor
+if (toggleSidebarBtn) {
+  toggleSidebarBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+    editor.classList.remove('open');
+  });
+}
+
+if (toggleEditorBtn) {
+  toggleEditorBtn.addEventListener('click', () => {
+    editor.classList.toggle('open');
+    sidebar.classList.remove('open');
+  });
+}
+
+// Make elements click-to-add for mobile
+if (isMobile) {
+  document.querySelectorAll('.draggable').forEach(el => {
+    el.removeAttribute('draggable');
+    el.addEventListener('click', () => {
+      const type = el.dataset.type;
+      const subtype = el.dataset.subtype || '';
+      const canvasRect = canvas.getBoundingClientRect();
+      const x = canvasRect.width / 2 - 100;
+      const y = canvasRect.height / 2 - 25;
+      const newEl = createElement(type, subtype, x, y);
+      canvas.appendChild(newEl);
+      handleSelection(newEl, new Event('click'));
+      sidebar.classList.remove('open');
+    });
+  });
+}
