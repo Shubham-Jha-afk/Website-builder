@@ -7,12 +7,8 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Mobile toggle buttons -->
-  <button id="toggle-sidebar" class="mobile-toggle left">Elements</button>
-  <button id="toggle-editor" class="mobile-toggle right">Edit</button>
-
   <div class="container">
-    <aside class="sidebar" id="sidebar">
+    <aside class="sidebar">
       <h2>Elements</h2>
 
       <div class="group">
@@ -27,14 +23,15 @@
       </div>
 
       <div class="group">
-        <button class="group-toggle">Text ▸</button>
-        <div class="group-content">
-          <div class="draggable" draggable="true" data-type="text" data-subtype="heading1">Heading 1</div>
-          <div class="draggable" draggable="true" data-type="text" data-subtype="heading2">Heading 2</div>
-          <div class="draggable" draggable="true" data-type="text" data-subtype="heading3">Heading 3</div>
-          <div class="draggable" draggable="true" data-type="text" data-subtype="paragraph">Paragraph</div>
-        </div>
-      </div>
+  <button class="group-toggle">Text ▸</button>
+  <div class="group-content">
+    <div class="draggable" draggable="true" data-type="text" data-subtype="heading1">Heading 1</div>
+    <div class="draggable" draggable="true" data-type="text" data-subtype="heading2">Heading 2</div>
+    <div class="draggable" draggable="true" data-type="text" data-subtype="heading3">Heading 3</div>
+    <div class="draggable" draggable="true" data-type="text" data-subtype="paragraph">Paragraph</div>
+  </div>
+</div>
+
 
       <div class="group">
         <button class="group-toggle">Buttons ▾</button>
@@ -59,7 +56,7 @@
 
     <main class="canvas" id="canvas"></main>
 
-    <aside class="editor" id="editor">
+    <aside class="editor">
       <h2>Edit</h2>
       <div id="edit-panel">
         <p>Select an element</p>
