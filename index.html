@@ -3,63 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Visual Web Builder</title>
+  <title>Simple Web Builder</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Mobile toggle buttons -->
+  <button id="toggle-sidebar" class="mobile-toggle left">Elements</button>
+  <button id="toggle-editor" class="mobile-toggle right">Edit</button>
 
-<!-- ✅ Mobile Header for toggle buttons -->
-<header class="mobile-header">
-  <button id="toggle-sidebar" class="hamburger">☰ Elements</button>
-  <button id="toggle-editor" class="hamburger">✎ Edit</button>
-</header>
+  <div class="container">
+    <aside class="sidebar" id="sidebar">
+      <h2>Elements</h2>
 
-<div class="container">
+      <div class="group">
+        <button class="group-toggle">Layout ▾</button>
+        <div class="group-content">
+          <div class="draggable" draggable="true" data-type="layout" data-subtype="grid">Grid</div>
+          <div class="draggable" draggable="true" data-type="layout" data-subtype="section">Section</div>
+          <div class="draggable" draggable="true" data-type="layout" data-subtype="container">Container</div>
+          <div class="draggable" draggable="true" data-type="layout" data-subtype="row">Row</div>
+          <div class="draggable" draggable="true" data-type="layout" data-subtype="column">Column</div>
+        </div>
+      </div>
 
-  <!-- Sidebar -->
-  <aside class="sidebar" id="sidebar">
-    <h3 class="group-toggle">Text ▾</h3>
-    <div class="group-content open">
-      <div class="draggable" draggable="true" data-type="text" data-subtype="heading1">Heading 1</div>
-      <div class="draggable" draggable="true" data-type="text" data-subtype="heading2">Heading 2</div>
-      <div class="draggable" draggable="true" data-type="text" data-subtype="heading3">Heading 3</div>
-      <div class="draggable" draggable="true" data-type="text" data-subtype="paragraph">Paragraph</div>
-    </div>
+      <div class="group">
+        <button class="group-toggle">Text ▸</button>
+        <div class="group-content">
+          <div class="draggable" draggable="true" data-type="text" data-subtype="heading1">Heading 1</div>
+          <div class="draggable" draggable="true" data-type="text" data-subtype="heading2">Heading 2</div>
+          <div class="draggable" draggable="true" data-type="text" data-subtype="heading3">Heading 3</div>
+          <div class="draggable" draggable="true" data-type="text" data-subtype="paragraph">Paragraph</div>
+        </div>
+      </div>
 
-    <h3 class="group-toggle">Buttons ▾</h3>
-    <div class="group-content open">
-      <div class="draggable" draggable="true" data-type="button" data-subtype="Primary">Primary Button</div>
-      <div class="draggable" draggable="true" data-type="button" data-subtype="Secondary">Secondary Button</div>
-      <div class="draggable" draggable="true" data-type="button" data-subtype="Outline">Outline Button</div>
-    </div>
+      <div class="group">
+        <button class="group-toggle">Buttons ▾</button>
+        <div class="group-content">
+          <div class="draggable" draggable="true" data-type="button" data-subtype="primary">Primary</div>
+          <div class="draggable" draggable="true" data-type="button" data-subtype="secondary">Secondary</div>
+          <div class="draggable" draggable="true" data-type="button" data-subtype="cta">Call to Action</div>
+        </div>
+      </div>
 
-    <h3 class="group-toggle">Images ▾</h3>
-    <div class="group-content open">
-      <div class="draggable" draggable="true" data-type="image">Image</div>
-    </div>
+      <div class="group">
+        <button class="group-toggle">Media ▾</button>
+        <div class="group-content">
+          <div class="draggable" draggable="true" data-type="image" data-subtype="upload">Image</div>
+        </div>
+      </div>
 
-    <h3 class="group-toggle">Layout ▾</h3>
-    <div class="group-content open">
-      <div class="draggable" draggable="true" data-type="layout" data-subtype="grid">Grid</div>
-      <div class="draggable" draggable="true" data-type="layout" data-subtype="row">Row</div>
-      <div class="draggable" draggable="true" data-type="layout" data-subtype="column">Column</div>
-    </div>
-  </aside>
+      <div style="margin-top: 20px;">
+        <button id="export-html">Export HTML</button>
+      </div>
+    </aside>
 
-  <!-- Canvas -->
-  <div class="canvas" id="canvas"></div>
+    <main class="canvas" id="canvas"></main>
 
-  <!-- Editor Panel -->
-  <aside class="editor" id="editor">
-    <h3>Edit Panel</h3>
-    <div id="edit-panel">
-      <p>Select an element</p>
-    </div>
-    <button id="export-html">Export HTML</button>
-  </aside>
+    <aside class="editor" id="editor">
+      <h2>Edit</h2>
+      <div id="edit-panel">
+        <p>Select an element</p>
+      </div>
+    </aside>
+  </div>
 
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
