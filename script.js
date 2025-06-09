@@ -669,3 +669,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+const isMobile = window.innerWidth <= 768;
+
+// Mobile: Sidebar toggle
+document.getElementById('toggle-sidebar').addEventListener('click', () => {
+  document.getElementById('sidebar').classList.toggle('open');
+  // Close editor if open
+  if (document.getElementById('editor').classList.contains('open')) {
+    document.getElementById('editor').classList.remove('open');
+  }
+});
+
+// Mobile: Editor toggle (toggle only on re-click)
+document.getElementById('toggle-editor').addEventListener('click', () => {
+  document.getElementById('editor').classList.toggle('open');
+  // Do not auto-close sidebar
+});
+
+// Mobile: Click to add element without drag
+if (isMobile) {
+  document.querySelectorAll('.draggable').forEach(el => {
+    el.removeAttribute('draggable');
+    el.addEventListener('click', () => {
+      const type = el.dataset.type;
+      const subtype = el.dataset.subtype || '';
+      const canvasRect = canvas.getBoundingClientRect();
+      const x = canvasRect.width / 2 - 100; // center horizontally (200px width)
+      const y = canvasRect.height / 2 - 25; // center vertically roughly
+      const newEl = createElement(type, subtype, x, y);
+      canvas.appendChild(newEl);
+      handleSelection(newEl, new Event('click'));
+
+      // Hide sidebar after adding
+      document.getElementById('sidebar').classList.remove('open');
+    });
+  });
+}
