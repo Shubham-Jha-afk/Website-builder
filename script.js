@@ -3,7 +3,7 @@ const editPanel = document.getElementById('edit-panel');
 let selectedElements = new Set();
 let isCtrlPressed = false;
 
-// Alignment guide lines (init)
+// Alignment guide lines
 const alignLineX = document.createElement('div');
 const alignLineY = document.createElement('div');
 Object.assign(alignLineX.style, {
@@ -24,23 +24,6 @@ Object.assign(alignLineY.style, {
 });
 canvas.appendChild(alignLineX);
 canvas.appendChild(alignLineY);
-
-// Right-click to set canvas background color
-canvas.addEventListener('contextmenu', e => {
-  e.preventDefault();
-  const input = document.createElement('input');
-  input.type = 'color';
-  input.style.position = 'fixed';
-  input.style.left = e.clientX + 'px';
-  input.style.top = e.clientY + 'px';
-  input.style.zIndex = 1000;
-  document.body.appendChild(input);
-  input.addEventListener('input', () => {
-    canvas.style.backgroundColor = input.value;
-    document.body.removeChild(input);
-  });
-  input.click();
-});
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Control') isCtrlPressed = true;
