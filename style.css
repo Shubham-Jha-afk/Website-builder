@@ -159,7 +159,7 @@ body, html {
   }
 }
 
-/* ----------- Enhancements for Sidebar ----------- */
+/*Enhancements for Sidebar */
 .sidebar {
   background: linear-gradient(135deg, #f8f9fa, #e9ecef);
   border-right: 1px solid #dee2e6;
@@ -206,7 +206,7 @@ body, html {
   transform: scale(1.02);
 }
 
-/* ----------- Enhancements for Edit Panel ----------- */
+/* Edit panel Enhancements */
 .editor {
   background: #f8f9fa;
   border-left: 1px solid #dee2e6;
@@ -306,19 +306,19 @@ button#export-html:hover {
     width: 100%;
     height: 60vh;
     margin: 10px 0;
-    order: 0; /* Canvas first */
+    order: 0; 
   }
 
   .sidebar {
     width: 100%;
     padding: 10px;
-    order: 1; /* Sidebar second */
+    order: 1; 
   }
 
   .editor {
     width: 100%;
     padding: 10px;
-    order: 2; /* Editor third */
+    order: 2; 
   }
 
   .draggable {
